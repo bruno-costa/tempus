@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body class="light-green accent-1">
-        <div>
+        <div id="home">
             <div class="row">
                 <div class="col s10 push-s1">
                     <div class="section">
@@ -71,7 +71,7 @@
                             <div class="col s3">
                                 <i class="material-icons medium">mode_edit</i>
                             </div>
-                            <div class="col s9 card-panel white-text amber darken-1 waves-effect waves-light ">
+                            <div class="col s9 card-panel white-text amber darken-1 waves-effect waves-light">
                                 <h3 class="center">
                                     <i class="material-icons medium">fitness_center</i>
                                     Começar
@@ -85,5 +85,10 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                // $('#home').hide();
+            });
+        </script>
     </body>
 </html>
