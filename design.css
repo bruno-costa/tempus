@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Digital Dismay';
+    src: url('Digital Dismay.otf');
+}
+
+:root {
+  --digital-display-padding: 4px;
+}
+
+.digital-display {
+    background-color: #263238;
+    display: inline-block;
+    padding: var(--digital-display-padding);
+    font-size: 72px;
+    font-family: 'Digital Dismay';
+    position: relative;
+    color: #dd2c00;
+    text-shadow: 0px 0px 6px rgb(221, 44, 0);
+    z-index: 0;
+}
+
+.digital-display::before {
+    content: '88';
+    color: #77352f;
+    position: absolute;
+    z-index: -1;
+    text-shadow: 0 0 0 black;
+}
+
+.btn-ctrl {
+    width: 98%;
+    margin: 2px 0 2px;
+    font-size: 32px;
+    text-transform: none;
+}
+
+.btn-ctrl i,
+.btn-ctrl span {
+    font-size: 32px;
+}
