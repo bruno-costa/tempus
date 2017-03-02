@@ -85,7 +85,7 @@
                     <div class="section">
                         <div class="row valign-wrapper">
                             <div class="col s3">
-                                <i class="material-icons medium">home</i>
+                                <i class="material-icons medium">backspace</i>
                             </div>
                             <div class="col s9 card-panel white-text amber darken-1 waves-effect waves-light">
                                 <h3 class="center">
@@ -93,6 +93,24 @@
                                     Começar
                                 </h3>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="running">
+                    <h4 class="center">1º intervalo</h4>
+                    <div class="row valign-wrapper container-intervalo">
+                        <div class="col s12 digital-display center card-panel display-well">
+                            cd
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6 center btn-play-pause">
+                            <i class="material-icons large icon-pause">pause_circle_outline</i>
+                            <i class="material-icons large icon-play">play_circle_outline</i>
+                        </div>
+                        <div class="col s6 center btn-replay-back">
+                            <i class="material-icons large icon-replay">settings_backup_restore</i>
+                            <i class="material-icons large icon-back">backspace</i>
                         </div>
                     </div>
                 </div>
@@ -140,6 +158,8 @@
         <script type="text/javascript">
             jQuery(document).ready(function($) {
                 $('#home').hide();
+                $('#options').hide();
+                $('#running').show();
 
                 var html_serie = $('#template-serie').html(),
                     html_intervalo = $('#template-intervalo').html();
@@ -147,6 +167,11 @@
                 $('<div>').html((html_serie + html_intervalo).replace(/\$\{index\}/g, 1)).appendTo('#options .content-option');
                 $('<div>').html((html_serie + html_intervalo).replace(/\$\{index\}/g, 2)).appendTo('#options .content-option');
                 $('<div>').html((html_serie).replace(/\$\{index\}/g, 3)).appendTo('#options .content-option');
+
+                $('.icon-play, .icon-back').hide();
+                setInterval(function() {
+                    $('.icon-play, .icon-back, .icon-pause, .icon-replay').toggle();
+                }, 1500)
             });
         </script>
     </body>
