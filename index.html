@@ -11,17 +11,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body class="light-green accent-1">
-        <div id="home">
-            <div class="row">
-                <div class="col s10 push-s1">
+        <div class="row">
+            <div class="col s10 push-s1">
+                <div id="home">
                     <div class="section">
                         <h3 class="center">Séries</h3>
                         <div class="row valign-wrapper">
                             <div class="col s6">
-                                <button class="waves-effect waves-light btn btn-large btn-ctrl">
+                                <button class="waves-effect waves-light btn btn-large btn-ctrl btn-inc">
                                     <i class="material-icons">add</i>
                                 </button>
-                                <button class="waves-effect waves-light btn btn-large btn-ctrl">
+                                <button class="waves-effect waves-light btn btn-large btn-ctrl btn-dec">
                                     <i class="material-icons">remove</i>
                                 </button>
                             </div>
@@ -34,11 +34,11 @@
                         <h3 class="center">Duração</h3>
                         <div class="row valign-wrapper">
                             <div class="col s6 btn-ctrl-group">
-                                <button class="waves-effect waves-light btn btn-large btn-ctrl">
+                                <button class="waves-effect waves-light btn btn-large btn-ctrl btn-inc">
                                     <i class="material-icons">add</i>
                                     <span class="right">5s</span>
                                 </button>
-                                <button class="waves-effect waves-light btn btn-large btn-ctrl">
+                                <button class="waves-effect waves-light btn btn-large btn-ctrl btn-dec">
                                     <i class="material-icons">remove</i>
                                     <span class="right">5s</span>
                                 </button>
@@ -52,11 +52,11 @@
                         <h3 class="center">Intervalo</h3>
                         <div class="row valign-wrapper">
                             <div class="col s6">
-                                <button class="waves-effect waves-light btn btn-large btn-ctrl">
+                                <button class="waves-effect waves-light btn btn-large btn-ctrl btn-inc">
                                     <i class="material-icons">add</i>
                                     <span class="right">5s</span>
                                 </button>
-                                <button class="waves-effect waves-light btn btn-large btn-ctrl">
+                                <button class="waves-effect waves-light btn btn-large btn-ctrl btn-dec">
                                     <i class="material-icons">remove</i>
                                     <span class="right">5s</span>
                                 </button>
@@ -80,14 +80,73 @@
                         </div>
                     </div>
                 </div>
+                <div id="options">
+                    <div class="section content-option"></div>
+                    <div class="section">
+                        <div class="row valign-wrapper">
+                            <div class="col s3">
+                                <i class="material-icons medium">home</i>
+                            </div>
+                            <div class="col s9 card-panel white-text amber darken-1 waves-effect waves-light">
+                                <h3 class="center">
+                                    <i class="material-icons medium">fitness_center</i>
+                                    Começar
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <template id="template-serie">
+            <h4 class="center">${index}ª séries</h4>
+            <div class="row valign-wrapper container-serie">
+                <div class="col s6 btn-ctrl-group">
+                    <button class="waves-effect waves-light btn btn-large btn-ctrl btn-inc">
+                        <i class="material-icons">add</i>
+                        <span class="right">5s</span>
+                    </button>
+                    <button class="waves-effect waves-light btn btn-large btn-ctrl btn-dec">
+                        <i class="material-icons">remove</i>
+                        <span class="right">5s</span>
+                    </button>
+                </div>
+                <div class="col s6 digital-display center card-panel">
+                    30
+                </div>
+            </div>
+        </template>
+        <template id="template-intervalo">
+            <h4 class="center">${index}º intervalo</h4>
+            <div class="row valign-wrapper container-intervalo">
+                <div class="col s6 btn-ctrl-group">
+                    <button class="waves-effect waves-light btn btn-large btn-ctrl btn-inc">
+                        <i class="material-icons">add</i>
+                        <span class="right">5s</span>
+                    </button>
+                    <button class="waves-effect waves-light btn btn-large btn-ctrl btn-dec">
+                        <i class="material-icons">remove</i>
+                        <span class="right">5s</span>
+                    </button>
+                </div>
+                <div class="col s6 digital-display center card-panel">
+                    30
+                </div>
+            </div>
+        </template>
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function($) {
-                // $('#home').hide();
+                $('#home').hide();
+
+                var html_serie = $('#template-serie').html(),
+                    html_intervalo = $('#template-intervalo').html();
+
+                $('<div>').html((html_serie + html_intervalo).replace(/\$\{index\}/g, 1)).appendTo('#options .content-option');
+                $('<div>').html((html_serie + html_intervalo).replace(/\$\{index\}/g, 2)).appendTo('#options .content-option');
+                $('<div>').html((html_serie).replace(/\$\{index\}/g, 3)).appendTo('#options .content-option');
             });
         </script>
     </body>
