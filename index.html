@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col s10 push-s1">
                 <div id="home">
-                    <div class="section">
+                    <div class="section qtd-series">
                         <h3 class="center">Séries</h3>
                         <div class="row valign-wrapper">
                             <div class="col s6">
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="section">
+                    <div class="section duracao-series">
                         <h3 class="center">Duração</h3>
                         <div class="row valign-wrapper">
                             <div class="col s6 btn-ctrl-group">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="section">
+                    <div class="section duracao-intervalo">
                         <h3 class="center">Intervalo</h3>
                         <div class="row valign-wrapper">
                             <div class="col s6">
@@ -155,24 +155,9 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+        <script type="text/javascript" src="Home.js"></script>
+        <script type="text/javascript" src="app.js"></script>
         <script type="text/javascript">
-            jQuery(document).ready(function($) {
-                $('#home').hide();
-                $('#options').hide();
-                $('#running').show();
-
-                var html_serie = $('#template-serie').html(),
-                    html_intervalo = $('#template-intervalo').html();
-
-                $('<div>').html((html_serie + html_intervalo).replace(/\$\{index\}/g, 1)).appendTo('#options .content-option');
-                $('<div>').html((html_serie + html_intervalo).replace(/\$\{index\}/g, 2)).appendTo('#options .content-option');
-                $('<div>').html((html_serie).replace(/\$\{index\}/g, 3)).appendTo('#options .content-option');
-
-                $('.icon-play, .icon-back').hide();
-                setInterval(function() {
-                    $('.icon-play, .icon-back, .icon-pause, .icon-replay').toggle();
-                }, 1500)
-            });
         </script>
     </body>
 </html>
