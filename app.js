@@ -15,12 +15,10 @@ const initDisplay = (layout) => {
 
 
 jQuery(document).ready(function($) {
-	var html_serie = $('#template-serie').html(),
-	    html_intervalo = $('#template-intervalo').html();
 
-	$('<div>').html((html_serie + html_intervalo).replace(/\$\{index\}/g, 1)).appendTo('#options .content-option');
-	$('<div>').html((html_serie + html_intervalo).replace(/\$\{index\}/g, 2)).appendTo('#options .content-option');
-	$('<div>').html((html_serie).replace(/\$\{index\}/g, 3)).appendTo('#options .content-option');
+	// $('<div>').html((html_serie + html_intervalo).replace(/\$\{index\}/g, 1)).appendTo('#options .content-option');
+	// $('<div>').html((html_serie + html_intervalo).replace(/\$\{index\}/g, 2)).appendTo('#options .content-option');
+	// $('<div>').html((html_serie).replace(/\$\{index\}/g, 3)).appendTo('#options .content-option');
 	
 	const home = new Home(
 		$('#home').find('.qtd-series'),
