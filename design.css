@@ -3,6 +3,12 @@
     src: url('Digital Dismay.otf');
 }
 
+.separator {
+    background-color: #263238;
+    height: 2px;
+    border-radius: 2px;
+}
+
 .digital-display {
     background-color: #263238;
     display: inline-block;
@@ -37,4 +43,9 @@
 
 .display-well {
     font-size: 190px;
+}
+
+body {
+    max-width: 450px;
+    margin: auto;
 }

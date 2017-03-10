@@ -4,8 +4,8 @@ const Options = function(domMain) {
 	const html_serie = $('#template-serie').html(),
 	html_intervalo = $('#template-intervalo').html();
 
-	let duracoesSeries = {};
-	let duracoesIntervalos = {};
+	let duracoesSeries = [];
+	let duracoesIntervalos = [];
 
 	function createNewInput(init, html, index) {
 		const obj = {
@@ -23,21 +23,20 @@ const Options = function(domMain) {
 	this.renderNew = (qtdSeries, duracaoSerie, duracaoIntervalo) => {
 		$dom.find('.content-option').html('');
 
-		duracoesSeries = {};
-		duracoesIntervalos = {};
+		duracoesSeries = [];
+		duracoesIntervalos = [];
 
 		for(var i = 0; i < qtdSeries-1; i++) {
-			duracoesSeries[i] = createNewInput(duracaoSerie, html_serie, i+1);
-			duracoesIntervalos[i] = createNewInput(duracaoIntervalo, html_intervalo, i+1);
-			
+			duracoesSeries.push(createNewInput(duracaoSerie, html_serie, i+1));
+			duracoesIntervalos.push(createNewInput(duracaoIntervalo, html_intervalo, i+1));
 		}
-		duracoesSeries[i] = createNewInput(duracaoSerie, html_serie, i+1);
+		duracoesSeries.push(createNewInput(duracaoSerie, html_serie, i+1));
 	}
 
 	this.getValores = () => {
 		return {
-			duracoesSeries,
-			duracoesIntervalos
+			'duracoesSeries': duracoesSeries.map(e => e.valor),
+			'duracoesIntervalos': duracoesIntervalos.map(e => e.valor)
 		}
 	}
 }

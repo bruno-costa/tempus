@@ -26,7 +26,20 @@ jQuery(document).ready(function($) {
 		$('#home').find('.duracao-intervalo')
 	);
 
-	$('#home').show();
-	$('#options').hide();
+	const options = new Options($('#options'))
+
+	let valor = home.getValores();
+	options.renderNew(
+		valor.qtdSeries,
+		valor.duracaoSerie,
+		valor.duracaoIntervalo
+	);
+
+	$('#home').hide();
+	$('#options').show();
 	$('#running').hide();
+
+	// $('#home').show();
+	// $('#options').hide();
+	// $('#running').hide();
 });
